@@ -51,6 +51,7 @@ jobs:
           pip install dvc
           pip install dvc[azure]
           
+          
           #echo ${{env.AZ_CS}}
           
           dvc remote modify --local myremote connection_string ${{env.AZ_CS}}
