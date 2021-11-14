@@ -61,6 +61,9 @@ jobs:
           dvc pull
           dvc repro
           git fetch --prune
+          
+          echo "Hello"
+          
           dvc metrics diff --show-md main > report.md
                     
           echo "## Metrics"
