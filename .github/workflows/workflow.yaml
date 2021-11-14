@@ -59,7 +59,6 @@ jobs:
           
           dvc pull
           dvc repro
-          
           git fetch --prune
           dvc metrics diff --show-md main > report.md
                     
