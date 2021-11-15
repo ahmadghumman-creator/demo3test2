@@ -57,6 +57,7 @@ jobs:
           
           echo "fetched data"
           
+          
           dvc pull
           dvc repro
           
