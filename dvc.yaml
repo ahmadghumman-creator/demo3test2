@@ -3,7 +3,7 @@ stages:
     cmd: python process_data.py
     deps:
     - process_data.py
-    - data\data_raw.csv
+    - data/data_raw.csv
     outs:
     - data_processed.csv
   train:
