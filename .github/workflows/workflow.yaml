@@ -44,6 +44,8 @@ jobs:
           REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           AZ_CS: ${{ secrets.CONN_STR_AZDLAT }}
         run: |
+          npm rebuild bcrypt --update-binary
+          
           pip install wget
           pip install sklearn
           pip install pandas
