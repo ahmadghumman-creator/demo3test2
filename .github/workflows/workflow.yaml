@@ -7,6 +7,7 @@ jobs:
       - uses: iterative/setup-cml@v1
       - uses: actions/checkout@v2
       - name: Deploy runner on AZVM
+      
         env:
           AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
           AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
@@ -30,9 +31,9 @@ jobs:
       #options: --gpus all
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v2
-        with:
-          node-version: '12'
+      #- uses: actions/setup-node@v2
+      #  with:
+      #    node-version: '12'
       - uses: actions/setup-python@v2
         with:
           python-version: '3.7'
@@ -43,6 +44,8 @@ jobs:
           REPO_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
           AZ_CS: ${{ secrets.CONN_STR_AZDLAT }}
         run: |
+          npm rebuild bcrypt --update-binary
+          
           pip install wget
           pip install sklearn
           pip install pandas
@@ -56,6 +59,7 @@ jobs:
           dvc remote modify --local myremote connection_string ${{env.AZ_CS}}
           
           echo "fetched data"
+          
           
           dvc pull
           dvc repro
